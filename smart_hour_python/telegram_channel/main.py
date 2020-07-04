@@ -33,5 +33,5 @@ def send_to_channel(text):
 
 
 if __name__ == '__main__':
-    msg = 'фыв'  # можно поменять текст
+    msg = 'test message'  # можно поменять текст
     send_to_channel(msg)
