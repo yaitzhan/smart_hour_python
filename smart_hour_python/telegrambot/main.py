@@ -3,7 +3,7 @@
 
 Смартчас "Знакомство с Python"
 
-Перед запуском Вам необходимо создать бота в телеграме и скопировать токен в API_TOKEN
+Перед запуском Вам необходимо создать бота в телеграме и скопировать токен в BOT_TOKEN
 
 """
 
@@ -12,13 +12,13 @@ import logging
 from aiogram import Bot, Dispatcher, executor, types
 
 # скопируйте токен полученный от @BotFather
-API_TOKEN = ''
+BOT_TOKEN = ''
 
 # логгирование
 logging.basicConfig(level=logging.INFO)
 
 # Инициализация бота и диспетчера
-bot = Bot(token=API_TOKEN)
+bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher(bot)
 
 
