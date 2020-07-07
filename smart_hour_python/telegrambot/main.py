@@ -5,6 +5,8 @@
 
 Перед запуском Вам необходимо создать бота в телеграме и скопировать токен в BOT_TOKEN
 
+Еще про чат-ботов в Telegram: https://tlgrm.ru/docs/bots
+
 """
 
 import logging
@@ -27,8 +29,7 @@ async def send_welcome(message: types.Message):
     """
     Оператор, отслеживающий событие: пользователь ввел `/start`
     """
-    # можно поменять текст
-    text = "Привет, я простой бот"
+    text = "Привет, я простой бот"  # можно поменять текст
     await message.reply(text)
 
 
@@ -37,14 +38,13 @@ async def send_welcome(message: types.Message):
     """
     Оператор, отслеживающий событие: пользователь ввел `/help`
     """
-    # можно поменять текст
-    text = "Спешу на помощь!"
+    text = "Спешу на помощь!"  # можно поменять текст
     await message.reply(text)
 
 
 @dp.message_handler(regexp='кот')
 async def cats(message: types.Message):
-    # открывает файл
+    # открывает файл, который находится в папке data
     with open('data/cat.jpg', 'rb') as photo:
         """
         Напишите боту "кот" и посмотрите что получится
