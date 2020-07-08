@@ -14,6 +14,7 @@ from flask import jsonify
 
 # основное приложение
 app = Flask(__name__)
+app.config['JSON_AS_ASCII'] = False  # для кирллицы
 
 # наша "БД"
 local_data = {
@@ -28,19 +29,15 @@ def hello_world():
     return 'Hello, World!'
 
 
-@app.route('/api/v1/cats/<int:cat_id>', methods=['GET'])
-@app.route('/api/v1/cats', methods=['GET'], defaults={'cat_id': 0})
-def cats_json_handler(cat_id):
+@app.route('/api/v1/cats', methods=['GET'])
+def cats_json_handler():
     """
     Ф-ция обработчик запросов.
 
-    :param cat_id: id котика
-    :return: возвращает всех котиков или определенного
+    :return: возвращает котиков
     """
-    if cat_id:
-        response = local_data.get(cat_id)  # возращаем определенного котика
-    else:
-        response = local_data  # возращаем всех котиков
+    response = local_data
+
     return jsonify(response)
 
 
